@@ -49,6 +49,7 @@ namespace Tim.CacheUtil
         public override TReturnData GetAndAddData<TReturnData>(string key, int duration, Func<TReturnData> getData, string[] dependKeys)
         {
             var data = Cache.Get(key);
+
             if (data != null)
             {
                 return (TReturnData)data;
