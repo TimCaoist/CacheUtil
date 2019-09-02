@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tim.CacheUtil.Models;
 
 namespace Tim.CacheUtil
 {
     public static class CacheUtil
     {
-        private static CacheCommonConfig commConfig = new CacheCommonConfig {  Duration = 20, Tempaltes = Enumerable.Empty<CacheTemplate>()};
+        private static CacheCommonConfig commConfig;
 
-        private static ICacheKeyCreator cacheKeyCreator = new DefaultCacheKeyCreator();
+        private static ICacheKeyCreator cacheKeyCreator;
+
+        static CacheUtil()
+        {
+            commConfig = new CacheCommonConfig {
+                ProxyType = CacheProxyType.WebCache,
+                Duration = 20,
+                Tempaltes = Enumerable.Empty<CacheTemplate>()
+            };
+
+            cacheKeyCreator = new DefaultCacheKeyCreator();
+        }
 
         public static void ApplyConfig(CacheCommonConfig config)
         {
@@ -87,7 +96,7 @@ namespace Tim.CacheUtil
                 throw new ArgumentNullException("Config");
             }
 
-            return new WebCacheProxy();
+            return WebCacheProxy.Instance;
         }
     }
 }

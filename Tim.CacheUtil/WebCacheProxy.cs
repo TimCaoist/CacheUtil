@@ -6,6 +6,8 @@ namespace Tim.CacheUtil
 {
     public class WebCacheProxy : BaseCacheProxy
     {
+        public readonly static WebCacheProxy Instance = new WebCacheProxy();
+
         /// <summary>
         /// 当前页面缓存
         /// </summary>

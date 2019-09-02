@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tim.CacheUtil.Models;
+﻿using Tim.CacheUtil.Models;
 
 namespace Tim.CacheUtil
 {
+    /// <summary>
+    /// Key名字生产器
+    /// </summary>
     public interface ICacheKeyCreator
     {
         string GetKey(CacheConfig config, object state);
