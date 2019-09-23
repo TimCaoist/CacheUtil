@@ -20,7 +20,6 @@ namespace Tim.CacheUtil.Models
         /// <summary>
         /// 其他需要的信息
         /// </summary>
-
         [DataMember(Name = "data")]
         public string Data { get; set; }
     }
